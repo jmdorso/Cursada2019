@@ -40,7 +40,7 @@ int calcularMaxMinPromedio(int *max,int *min,float *promedio,int cantNum)
 	int acum=0;
 	int maxAux;
 	int minAux;
-	for(i=0;i<5;i++)
+	for(i=0;i<CANTMAXNUMPEDIR;i++)
 	{
 		printf("Ingrese numero: ");
 		scanf("%d", &num);
