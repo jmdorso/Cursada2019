@@ -11,7 +11,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
-	return EXIT_SUCCESS;
+#define CANTNUMEROSPEDIR 5
+
+int calcularMaxMinPromedio(int *max,int *min,int *promedio,int cantNum);
+
+int main(void)
+{
+
+	return
+}
+
+int calcularMaxMinPromedio(int *max,int *min,int *promedio,int cantNum)
+{
+
 }
