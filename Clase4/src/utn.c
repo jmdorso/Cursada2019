@@ -72,3 +72,38 @@ int getFloat(	float *resultado,
 	}
 	return retorno;
 }
+
+int getChar(char *resultado,
+			char *mensaje,
+			char *mensajeError,
+			int minimo,
+			int maximo,
+			int reintentos)
+{
+	int retorno = EXIT_ERROR;
+	char buffer;
+	if(	resultado != NULL &
+		mensaje != NULL &
+		mensajeError != NULL &
+		minimo < maximo &
+		reintentos >= 0)
+	{
+		do
+		{
+			printf("%s", mensaje);
+			__fpurge(stdin);
+			if(scanf("%c", &buffer)==1)
+			{
+				if(buffer >= minimo && buffer <= maximo)
+				{
+					retorno = EXIT_SUCCESS;
+					*resultado = buffer;
+					break;
+				}
+			}
+			printf("%s",mensajeError);
+			reintentos--;
+		}while(reintentos >= 0);
+	}
+	return retorno;
+}

@@ -13,3 +13,10 @@ int getFloat(	float *resultado,
 				float minimo,
 				float maximo,
 				int reintentos);
+
+int getChar(char *resultado,
+			char *mensaje,
+			char *mensajeError,
+			int minimo,
+			int maximo,
+			int reintentos);
