@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <stdlib.h>
+#include <string.h>
+
 #define QTY_EMPLEADOS 10
 int imprimeArrayInt(int array[],int limite);
 int initArrayInt(int array[],int limite,int valor);
@@ -33,10 +35,16 @@ int getInt(	int *pResultado,
 int ordenarArrayInt(int array[],int limite);
 int ordenarArrayIntVDos(int array[],int limite);
 int ordenarArrayIntVTres(int array[],int limite);
+int getString(	char *pResultado,
+				char *pMensaje,
+				char *pMensajeError,
+				int minimo,
+				int maximo,
+				int reintentos);
 
 int main(void)
 {
-	int edadesEmpleados[QTY_EMPLEADOS] =  {22,1,44,2,1};
+	/*int edadesEmpleados[QTY_EMPLEADOS] =  {22,1,44,2,1};
 	int cantidadDatos = 5 ;
 	int test;
 
@@ -49,8 +57,11 @@ int main(void)
 		ordenarArrayIntVTres(edadesEmpleados,cantidadDatos);
 		imprimeArrayInt(edadesEmpleados,cantidadDatos);
 		maximoArrayInt(edadesEmpleados,cantidadDatos,&test);
-	}
+	}*/
 
+	char nombre[50];
+	getString(nombre,"Ingrese nombre: ","\nError",2,10,5);
+	printf("\nEl nombre es: %s ", nombre);
 
 /*
 	if(initArrayInt(edadesEmpleados,QTY_EMPLEADOS,10) == 0)
@@ -250,5 +261,42 @@ int ordenarArrayIntVTres(int array[],int limite)
 		}
 	retorno = 0;
 	}
+	return retorno;
+}
+
+int getString(	char *pResultado,
+				char *pMensaje,
+				char *pMensajeError,
+				int minimo,
+				int maximo,
+				int reintentos)
+{
+	int retorno = -1;
+	char buffer[4096];
+
+	if(	pResultado != NULL &&
+		pMensaje	!= NULL &&
+		pMensajeError != NULL &&
+		minimo < maximo &&
+		reintentos >= 0)
+		{
+			do
+			{
+				printf("%s",pMensaje);
+				__fpurge(stdin);
+				fgets(buffer,sizeof(buffer),stdin);
+				buffer[strlen(buffer)-1] = "\0";
+				if(strlen(buffer)<=maximo && strlen(buffer)>=minimo)
+				{
+					strncpy(pResultado,buffer,maximo+1);//a dif de strcpy la N te pasa el limite del destino para no desbordarlo
+					retorno = 0;
+					break;
+				}
+
+				printf("%s",pMensajeError);
+				reintentos--;
+			}while(reintentos >= 0);
+		}
+
 	return retorno;
 }
