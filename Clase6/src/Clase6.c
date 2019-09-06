@@ -277,7 +277,7 @@ int getString(	char *pResultado,
 	if(	pResultado != NULL &&
 		pMensaje	!= NULL &&
 		pMensajeError != NULL &&
-		minimo < maximo &&
+		minimo <= maximo &&
 		reintentos >= 0)
 		{
 			do
@@ -285,7 +285,7 @@ int getString(	char *pResultado,
 				printf("%s",pMensaje);
 				__fpurge(stdin);
 				fgets(buffer,sizeof(buffer),stdin);
-				buffer[strlen(buffer)-1] = "\0";
+				buffer[strlen(buffer)-1] = '\0';//el \0 siempre con comilla simple
 				if(strlen(buffer)<=maximo && strlen(buffer)>=minimo)
 				{
 					strncpy(pResultado,buffer,maximo+1);//a dif de strcpy la N te pasa el limite del destino para no desbordarlo
