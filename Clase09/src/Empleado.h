@@ -33,5 +33,6 @@ int bajaEmpleadoPorId(struct sEmpleado *aArray, int cantidad,int id);
 int modificarEmpleadoPorId(struct sEmpleado *aArray, int cantidad,struct sEmpleado empleado);
 int altaEmpleadoPorId(struct sEmpleado *aArray, int cantidad,struct sEmpleado empleado);
 
+int altaForzadaEmpleados(struct sEmpleado *aArray,int cantidad);
 
 #endif /* EMPLEADO_H_ */

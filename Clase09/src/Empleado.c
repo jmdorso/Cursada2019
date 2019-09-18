@@ -97,14 +97,39 @@ int buscarLugarLibreEmpleado(struct sEmpleado *aArray, int cantidad)
 	return retorno;
 }
 
-/*int altaEmpleadoPorId(struct sEmpleado *aArray, int cantidad,struct sEmpleado empleado)
+int altaEmpleadoPorId(struct sEmpleado *aArray, int cantidad,struct sEmpleado empleado)
 {
 	int retorno = -1;
+	int indice;
 	int i;
 
-	if(aArray != NULL && cantidad >0 && empleado)
+	if(aArray != NULL && cantidad >0)
 	{
-
+		indice = buscarLugarLibreEmpleado(aArray,cantidad);
+		if(indice != -1)
+			{
+				empleado.status=STATUS_NOT_EMPTY;
+				aArray[indice] = empleado;
+				retorno = 0;
+			}
 	}
 	return retorno;
-}*/
+}
+
+int altaForzadaEmpleados(struct sEmpleado *aArray,int cantidad)
+{
+	int id[]={1,5,6,7,8};
+	char nombre[][25] = {"Juan","Pedro","Maria","Abraham","Eva"};
+	char apellido[][25] = {"Gomez","Perez","Lopez","Rodriguez","Peron"};
+
+	int i;
+
+	for(i=0;i<5;i++)
+	{
+		aArray[i].status = STATUS_NOT_EMPTY;
+		aArray[i].idEmpleado = id[i];
+		strncpy(aArray[i].nombre,nombre[i],25);
+		strncpy(aArray[i].apellido,apellido[i],25);
+	}
+	return 1;
+}
