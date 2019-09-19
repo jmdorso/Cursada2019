@@ -106,7 +106,7 @@ int altaEmpleadoPorId(struct sEmpleado *aArray, int cantidad,struct sEmpleado em
 	if(aArray != NULL && cantidad >0)
 	{
 		indice = buscarLugarLibreEmpleado(aArray,cantidad);
-		if(indice != -1)
+		if(indice != -1 && buscarEmpleadoPorId(aArray,cantidad,empleado.idEmpleado) == -1)
 			{
 				empleado.status=STATUS_NOT_EMPTY;
 				aArray[indice] = empleado;
@@ -132,4 +132,45 @@ int altaForzadaEmpleados(struct sEmpleado *aArray,int cantidad)
 		strncpy(aArray[i].apellido,apellido[i],25);
 	}
 	return 1;
+}
+
+int buscarEmpleadoPorId(struct sEmpleado *aArray, int cantidad,int id)
+{
+	int retorno = -1;
+	int i;
+
+	if(aArray != NULL && cantidad >0 && id >= 0)
+	{
+		for(i=0;i<cantidad;i++)
+		{
+			if(aArray[i].idEmpleado == id)
+			{
+				retorno = i;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+
+int imprimirArrayEmpleadosStatusOk(struct sEmpleado *aEmpleado, int cantidad)
+{
+	int i;
+	int retorno = -1;
+	if(aEmpleado != NULL && cantidad>0)
+	{
+		retorno = 0;
+		for(i=0;i<cantidad;i++)
+		{
+			if(aEmpleado[i].status==1)
+			{
+				printf("Status: %d Id: %d - Nombre: %s - Apellido: %s \n",aEmpleado[i].status,aEmpleado[i].idEmpleado,aEmpleado[i].nombre,aEmpleado[i].apellido);
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+	return retorno;
 }

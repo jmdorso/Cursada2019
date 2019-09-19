@@ -26,6 +26,7 @@ int initLugarLibreEmpleado(struct sEmpleado *aArray, int cantidad);//OK
 
 int imprimirArrayEmpleados(struct sEmpleado *aEmpleado, int cantidad);//OK
 int ordenarArrayEmpleados(struct sEmpleado *aEmpleado, int cantidad);//Ok
+int imprimirArrayEmpleadosStatusOk(struct sEmpleado *aEmpleado, int cantidad);
 
 int buscarLugarLibreEmpleado(struct sEmpleado *aArray, int cantidad);
 int buscarEmpleadoPorId(struct sEmpleado *aArray, int cantidad,int id);

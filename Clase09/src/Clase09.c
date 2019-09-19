@@ -24,19 +24,19 @@
 int main(void)
 {
 	struct sEmpleado aEmpleados[QTY_EMPLEADOS];
-	struct sEmpleado auxEmpleado = {4,STATUS_NOT_EMPTY,"Juan","Perez"};
-	struct sEmpleado auxEmpleadoDos = {15,STATUS_NOT_EMPTY,"Aas","qweq"};
+	struct sEmpleado auxEmpleado = {9,STATUS_NOT_EMPTY,"Juan","Perez"};
+	struct sEmpleado auxEmpleadoDos = {4,STATUS_NOT_EMPTY,"Aas","qweq"};
+	int id;
+	int idBusca;
 
 	printf("\n\t--PRUEBO INIT--\n\n");
 	initLugarLibreEmpleado(aEmpleados, QTY_EMPLEADOS);
 	imprimirArrayEmpleados(aEmpleados,QTY_EMPLEADOS);
-
 	//PRUEBO INIT
 
 	printf("\n\t--PRUEBO FORZARALTA--\n\n");
 	altaForzadaEmpleados(aEmpleados,QTY_EMPLEADOS);
 	imprimirArrayEmpleados(aEmpleados,QTY_EMPLEADOS);
-
 	//PRUEBO ALTA FORZADA
 
 	printf("\n\t--PRUEBO BUSCARLUGARLIBRE--\n\n");
@@ -45,12 +45,17 @@ int main(void)
 	aEmpleados[0].status=1;
 	numero = buscarLugarLibreEmpleado(aEmpleados,QTY_EMPLEADOS);
 	printf("\n%d",numero);
-
 	//PRUEBO BUSCARLUGARLIBRE
 
-	printf("\n\t--PRUEBO ALTA--\n\n");
+	printf("\n\t--PRUEBO ALTA y IMPRIMO POR STATUS OK--\n\n");
 	altaEmpleadoPorId(aEmpleados,QTY_EMPLEADOS,auxEmpleado);
-	imprimirArrayEmpleados(aEmpleados,QTY_EMPLEADOS);
+	imprimirArrayEmpleadosStatusOk(aEmpleados,QTY_EMPLEADOS);
+	//PRUEBO ALTA
+
+	printf("\n\t--PRUEBO BUSCAR POR ID--\n\n");
+	idBusca=8;
+	id = buscarEmpleadoPorId(aEmpleados,QTY_EMPLEADOS,idBusca);
+	printf("El Empleado con ID %d es:\n\nID: %d\nNombre: %s\nApellido: %s",idBusca, aEmpleados[id].idEmpleado, aEmpleados[id].nombre, aEmpleados[id].apellido);
 
 
 	//PRUEBO ALTA
