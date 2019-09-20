@@ -44,16 +44,18 @@ int main(void)
 
 	printf("\n\t--PRUEBO ALTA y IMPRIMO POR STATUS OK--\n\n");
 	altaPantallaPorId(aPantallas,QTY_PANTALLAS,auxPantalla);
-	imprimirArrayPantallasStatusOk(aPantallas,QTY_PANTALLAS);
-
+	altaPantallaPorId(aPantallas,QTY_PANTALLAS,auxPantallaDos);
+	altaPantallaPorId(aPantallas,QTY_PANTALLAS,auxPantalla);
+	altaPantallaPorId(aPantallas,QTY_PANTALLAS,auxPantallaDos);
+	altaPantallaPorId(aPantallas,QTY_PANTALLAS,auxPantalla);
 	altaPantallaPorId(aPantallas,QTY_PANTALLAS,auxPantallaDos);
 	imprimirArrayPantallasStatusOk(aPantallas,QTY_PANTALLAS);
 	//PRUEBO ALTA
 
 	printf("\n\t--PRUEBO BUSCAR POR ID--\n\n");
-	idBusca=18;
+	idBusca=2;
 	id = buscarPantallaPorId(aPantallas,QTY_PANTALLAS,idBusca);
-	printf("La Pantalla con ID %d es:\n\n"
+	/*printf("La Pantalla con ID %d es:\n\n"
 			"ID: %d\n"
 			"Nombre: %s"
 			"\nDireccion: %s"
@@ -64,8 +66,13 @@ int main(void)
 			,aPantallas[id].nombre
 			,aPantallas[id].direccion
 			,aPantallas[id].precio
-			,aPantallas[id].tipo);
+			,aPantallas[id].tipo);*/
+	imprimoUnaPantalla(aPantallas[id]);
 	//PRUEBO BUSCARxID
+
+	printf("\n\t--PRUEBO BAJA--\n\n");
+	bajaPantallaPorId(aPantallas,QTY_PANTALLAS,idBusca);
+	imprimirArrayPantallasStatusOk(aPantallas,QTY_PANTALLAS);
 
 	return EXIT_SUCCESS;
 }

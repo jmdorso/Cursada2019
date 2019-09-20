@@ -155,31 +155,49 @@ int bajaPantallaPorId(Pantalla *aArray, int cantidad,int id)
 	int i;
 	int retorno = -1;
 	int indice;
+	char elimina = 'n';
 	if(aArray != NULL && cantidad>0 && id>=0)
 	{
 		indice = buscarPantallaPorId(aArray,cantidad,id);
 		if(indice >= 0)
 		{
-
+			imprimoUnaPantalla(aArray[indice]);
+			printf("\n\nDesea Eliminar: s/n");
+			__fpurge(stdin);
+			fgets(elimina,sizeof(elimina),stdin);
+			if(elimina == 's' || elimina == 's')
+			{
+				aArray[indice].status = 0;
+				retorno = 0;
+			}
 		}
 	}
+	return retorno;
 }
 
-/*int imprimoUnaPantalla(Pantalla pantalla)
+int imprimoUnaPantalla(Pantalla pantalla)
 {
-	printf("La Pantalla con ID %d es:\n\n"
-			"ID: %d\n"
-			"Nombre: %s"
-			"\nDireccion: %s"
-			"\nPrecio: $%.2f"
-			"\nTipo: %d"
-			,idBusca
-			,aPantallas[id].idPantalla
-			,aPantallas[id].nombre
-			,aPantallas[id].direccion
-			,aPantallas[id].precio
-			,aPantallas[id].tipo);
-}*/
+	int retorno = -1;
+
+
+	if(pantalla.status == 0 || pantalla.status == 1)
+	{
+		printf("La Pantalla a mostrar es:\n\n"
+					"ID: %d\n"
+					"Nombre: %s"
+					"\nDireccion: %s"
+					"\nPrecio: $%.2f"
+					"\nTipo: %d"
+					,pantalla.idPantalla
+					,pantalla.nombre
+					,pantalla.direccion
+					,pantalla.precio
+					,pantalla.tipo);
+
+		retorno = 0;
+	}
+	return retorno;
+}
 
 
 static int generarId(void)
