@@ -143,11 +143,15 @@ int buscarEmpleadoPorId(struct sEmpleado *aArray, int cantidad,int id)
 	{
 		for(i=0;i<cantidad;i++)
 		{
-			if(aArray[i].idEmpleado == id)
+			if(aArray[i].status == 1)
 			{
+				if(aArray[i].idEmpleado == id)
+				{
 				retorno = i;
 				break;
+				}
 			}
+
 		}
 	}
 	return retorno;
