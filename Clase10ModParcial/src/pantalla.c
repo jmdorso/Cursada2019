@@ -116,7 +116,7 @@ int altaPantallaPorId(Pantalla *aArray, int cantidad,Pantalla pantalla)
 	if(aArray != NULL && cantidad >0)
 	{
 		indice = buscarLugarLibrePantalla(aArray,cantidad);
-		if(indice != -1 && buscarPantallaPorId(aArray,cantidad,pantalla.idPantalla) == -1)
+		if(indice >= 0 && buscarPantallaPorId(aArray,cantidad,pantalla.idPantalla) == -1)
 			{
 				pantalla.status=STATUS_NOT_EMPTY;
 				pantalla.idPantalla=generarId();
@@ -141,10 +141,6 @@ int imprimirArrayPantallasStatusOk(Pantalla *aArray, int cantidad)
 				printf("Status: %d\tId: %d\tNombre: %s\tDireccion: %s\tPrecio: %.2f\tTipo: %d\n",
 				aArray[i].status,aArray[i].idPantalla,aArray[i].nombre,aArray[i].direccion,aArray[i].precio,aArray[i].tipo);
 			}
-			else
-			{
-				break;
-			}
 		}
 	}
 	return retorno;
@@ -159,17 +155,10 @@ int bajaPantallaPorId(Pantalla *aArray, int cantidad,int id)
 	if(aArray != NULL && cantidad>0 && id>=0)
 	{
 		indice = buscarPantallaPorId(aArray,cantidad,id);
-		if(indice >= 0)
+		if(indice != -1)
 		{
-			imprimoUnaPantalla(aArray[indice]);
-			printf("\n\nDesea Eliminar: s/n");
-			__fpurge(stdin);
-			fgets(elimina,sizeof(elimina),stdin);
-			if(elimina == 's' || elimina == 's')
-			{
-				aArray[indice].status = 0;
-				retorno = 0;
-			}
+			aArray[indice].status = STATUS_EMPTY;
+			retorno = 0;
 		}
 	}
 	return retorno;
