@@ -74,5 +74,8 @@ int main(void)
 	bajaPantallaPorId(aPantallas,QTY_PANTALLAS,idBusca);
 	imprimirArrayPantallasStatusOk(aPantallas,QTY_PANTALLAS);
 
+
+
+
 	return EXIT_SUCCESS;
 }

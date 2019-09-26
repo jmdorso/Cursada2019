@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "utn.h"
-#include "pantalla.h"
+#include "pantallas.h"
 
 int initLugarLibrePantalla(Pantalla *aArray, int cantidad)
 {
@@ -211,5 +211,4 @@ static int generarId(void)
 	idIncremental++;
 
 	return idIncremental;
-
 }

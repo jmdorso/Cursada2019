@@ -167,7 +167,8 @@ int altaUI(struct sPantalla* aPantallas,int len)
 	int retorno=-1;
 
 	printf("Alta de pantallas\n");
-	if (buscarLugarLibrePantalla(aPantallas, len) == -1) {
+	if (buscarLugarLibrePantalla(aPantallas, len) == -1)
+	{
 		printf("Error no hay mas lugar para pantallas\n");
 		if (getString(bPantalla.nombre, "Ingrese el nombre\n", "Error", 1,
 					49, 2) != -1)
@@ -181,7 +182,8 @@ int altaUI(struct sPantalla* aPantallas,int len)
 						if (getInt(&bPantalla.tipo, "Ingrese el tipo 1-lcd 2-led\n", "Error",
 								1, 2, 2) != -1)
 						{
-							if (altaPantallaPorId(aPantallas, len, bPantalla) == 0) {
+							if (altaPantallaPorId(aPantallas, len, bPantalla) == 0)
+							{
 								printf("Alta exitosa\n");
 								retorno=0; // OK
 							}
