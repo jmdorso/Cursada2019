@@ -1,6 +1,8 @@
 LaunchTargetManager/configs/Clase09=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase10ModParcial=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase22del10=org.eclipse.launchbar.core.launchTargetType.local\:Local
+LaunchTargetManager/configs/Clase24del10ARCHIVOS2=org.eclipse.launchbar.core.launchTargetType.local\:Local
+LaunchTargetManager/configs/Clase24del10Archivos=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase3MAXMIN=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase4=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Clase4MAXMIN=org.eclipse.launchbar.core.launchTargetType.local\:Local
@@ -11,7 +13,7 @@ LaunchTargetManager/configs/parcial1_mejorado=org.eclipse.launchbar.core.launchT
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:Clase22del10
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Clase24del10Archivos,org.eclipse.launchbar.core.descriptorType.default\:Clase24del10ARCHIVOS2
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:Clase09/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Clase09/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
@@ -19,6 +21,8 @@ org.eclipse.launchbar.core.descriptorType.default\:Clase10ModParcial/activeLaunc
 org.eclipse.launchbar.core.descriptorType.default\:Clase10ModParcial/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Clase22del10/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Clase22del10/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Clase24del10Archivos/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Clase24del10Archivos/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Clase3/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Clase3/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Clase3MAXMIN/activeLaunchMode=run
