@@ -629,8 +629,9 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
 	return listaFiltrada;
 }
 
-LinkedList* ll_reduce(LinkedList* this,int (*pFunc)(void*))
+int ll_reduce(LinkedList* this,int (*pFunc)(void*))
 {
+	int returnAux = -1;
 	int i;
 	void* pElement;
 
@@ -643,9 +644,10 @@ LinkedList* ll_reduce(LinkedList* this,int (*pFunc)(void*))
 			{
 				ll_remove(this,i);
 				i--;
+				returnAux = 0;
 			}
 		}
 	}
 
-	return this;
+	return returnAux;
 }

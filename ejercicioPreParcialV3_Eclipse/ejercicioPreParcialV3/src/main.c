@@ -35,6 +35,7 @@ int main()
     // Crear lista empledos
     listaEmpleados = ll_newLinkedList();
 
+
     // Leer empleados de archivo data.csv
     if(parser_parseEmpleados("data.csv",listaEmpleados)==1)
     {
@@ -45,7 +46,6 @@ int main()
         printf("Calculando lista Filtrada por Sueldo mayores a 20,000\n");
         listaFiltradaMayorA = ll_filter(listaEmpleados,em_filtrarListaPorSueldo);
 
-        printf("Calculando lista Filtrada por Sueldo menores a 20,000\n");
         listaFiltradaPorId = ll_clone(listaEmpleados);
         ll_reduce(listaFiltradaPorId,em_reduceListaPorId);
         // Generar archivo de salida

@@ -62,7 +62,7 @@ int em_reduceListaPorId(void* p)
 
 	if(p != NULL)
 	{
-		if(((Empleado*)p)->id > 50)
+		if(((Empleado*)p)->id > 10)
 		{
 			retorno = 1;
 		}
