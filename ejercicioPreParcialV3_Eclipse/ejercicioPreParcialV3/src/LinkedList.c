@@ -606,7 +606,7 @@ int ll_map(LinkedList* this, void (*pFunc)(void*))
 	return returnAux;
 }
 
-LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*,int, int),int from, int to)
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
 {
 	LinkedList* listaFiltrada = NULL;
 	int i;
@@ -619,7 +619,7 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*,int, int),int from, i
 		for(i=0;i<ll_len(this);i++)
 		{
 			pElement = ll_get(this,i);
-			if(pFunc(pElement,from,to)==1)
+			if(pFunc(pElement)==1)
 			{
 				ll_add(listaFiltrada,pElement);
 			}
@@ -629,26 +629,23 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*,int, int),int from, i
 	return listaFiltrada;
 }
 
-/*LinkedList* ll_filterConArgs(LinkedList* this, int (*pFunc)(void*,void*),void* arg)
+LinkedList* ll_reduce(LinkedList* this,int (*pFunc)(void*))
 {
-	LinkedList* listaFiltrada = NULL;
 	int i;
 	void* pElement;
 
-
-	listaFiltrada = ll_newLinkedList();
-	if(this != NULL && pFunc != NULL && ll_len(this) > 0 && listaFiltrada != NULL)
+	if(this != NULL && pFunc != NULL && ll_len(this) > 0)
 	{
 		for(i=0;i<ll_len(this);i++)
 		{
 			pElement = ll_get(this,i);
-			if(pFunc(pElement,arg)==1)
+			if(pFunc(pElement)==1)
 			{
-				ll_add(listaFiltrada,pElement);
+				ll_remove(this,i);
+				i--;
 			}
 		}
 	}
 
-	return listaFiltrada;
-}*/
-
+	return this;
+}

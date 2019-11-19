@@ -11,7 +11,8 @@ struct S_Empleado
 typedef struct S_Empleado Empleado;
 
 void em_calcularSueldo(void* p);
-int em_filtrarListaPorSueldo(void* p,int from, int to);
+int em_filtrarListaPorSueldo(void* p);
+int em_reduceListaPorId(void* p);
 
 Empleado* employee_new();
 void employee_delete(Empleado *this);

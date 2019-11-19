@@ -37,13 +37,13 @@ void em_calcularSueldo(void* p)
 	// hacer calculo de sueldo y escribirlo en campo sueldo del empleado
 }
 
-int em_filtrarListaPorSueldo(void* p,int from, int to)
+int em_filtrarListaPorSueldo(void* p)
 {
 	int retorno = -1;
 
-	if(p != NULL && from >= 0 && to >= from)
+	if(p != NULL)
 	{
-		if(((Empleado*)p)->sueldo >= from && ((Empleado*)p)->sueldo <= to)
+		if(((Empleado*)p)->sueldo >= 20000)
 		{
 			retorno = 1;
 		}
@@ -56,16 +56,13 @@ int em_filtrarListaPorSueldo(void* p,int from, int to)
 	return retorno;
 }
 
-/*int em_filtrarListaPorSueldoV2(void* p,void* args)
+int em_reduceListaPorId(void* p)
 {
 	int retorno = -1;
-	int* limites = (int*)args;
 
-
-
-	if(p != NULL && limites[0] >= 0 && limites >= from)
+	if(p != NULL)
 	{
-		if(((Empleado*)p)->sueldo >= from && ((Empleado*)p)->sueldo <= to)
+		if(((Empleado*)p)->id > 50)
 		{
 			retorno = 1;
 		}
@@ -76,7 +73,7 @@ int em_filtrarListaPorSueldo(void* p,int from, int to)
 	}
 
 	return retorno;
-}*/
+}
 
 Empleado* employee_new()
 {

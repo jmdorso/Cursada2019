@@ -30,7 +30,7 @@ int main()
     // Definir lista de empleados
 	LinkedList* listaEmpleados;
 	LinkedList* listaFiltradaMayorA;
-	LinkedList* listaFiltradaMenorA;
+	LinkedList* listaFiltradaPorId;
 
     // Crear lista empledos
     listaEmpleados = ll_newLinkedList();
@@ -43,10 +43,11 @@ int main()
         ll_map(listaEmpleados,em_calcularSueldo);
 
         printf("Calculando lista Filtrada por Sueldo mayores a 20,000\n");
-        listaFiltradaMayorA = ll_filter(listaEmpleados,em_filtrarListaPorSueldo,20000,10000000);
+        listaFiltradaMayorA = ll_filter(listaEmpleados,em_filtrarListaPorSueldo);
 
         printf("Calculando lista Filtrada por Sueldo menores a 20,000\n");
-        listaFiltradaMenorA = ll_filter(listaEmpleados,em_filtrarListaPorSueldo,0,20000);
+        listaFiltradaPorId = ll_clone(listaEmpleados);
+        ll_reduce(listaFiltradaPorId,em_reduceListaPorId);
         // Generar archivo de salida
         if(generarArchivoSueldos("sueldos.csv",listaEmpleados)==1)
         {
@@ -55,7 +56,7 @@ int main()
         else
             printf("Error generando archivo\n");
         // Generar archivo de salida SUBLISTA
-        if(generarArchivoSueldos("sueldosFiltradosMayoresA20mil.csv",listaFiltradaMayorA)==1 && generarArchivoSueldos("sueldosFiltradosMenoresA20mil.csv",listaFiltradaMenorA)==1)
+        if(generarArchivoSueldos("sueldosFiltradosMayoresA20mil.csv",listaFiltradaMayorA)==1 && generarArchivoSueldos("ListaFiltradaPorId.csv",listaFiltradaPorId)==1)
         {
             printf("Archivo FILTRADO generado correctamente\n");
         }
